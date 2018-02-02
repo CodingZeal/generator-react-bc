@@ -1,0 +1,16 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Nate Clark",
+      "authorEmail": "nate.clark@codingzeal.com",
+      "authorUrl": ""
+    }
+  },
+  "generator-react-bc": {
+    "promptValues": {
+      "dirSource": "src",
+      "moduleName": "LongName",
+      "componentName": "LongName"
+    }
+  }
+}

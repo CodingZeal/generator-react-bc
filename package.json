@@ -1,0 +1,67 @@
+{
+  "name": "generator-react-bc",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Nate Clark",
+    "email": "nate.clark@codingzeal.com"
+  },
+  "files": ["generators"],
+  "main": "generators/index.js",
+  "keywords": ["module", "yeoman-generator"],
+  "license": "unlicense",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-zeal": "^1.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.6",
+    "lint-staged": "^4.2.1",
+    "nsp": "^2.6.3",
+    "prettier": "^1.10.2",
+    "prettier-eslint": "^8.8.1",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "inflected": "^2.0.3",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/test/**/?(*.)(spec|test).js?(x)"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "moduleFileExtensions": ["js", "json"]
+  },
+  "scripts": {
+    "format": "prettier --write '**/*.js'",
+    "lint":
+      "CI=true; eslint ./ --config .eslintrc.js && prettier --list-different '**/*.js'",
+    "prepublish": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": ["yarn -s format", "yarn -s lint", "git add"],
+    "*.json": ["prettier --write", "git add"]
+  },
+  "babel": {
+    "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
+  }
+}
