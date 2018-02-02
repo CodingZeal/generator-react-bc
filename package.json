@@ -13,6 +13,7 @@
   "license": "unlicense",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -38,8 +39,8 @@
   },
   "jest": {
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.js?(x)",
-      "<rootDir>/test/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/__tests__/**/*.js?(x)",
+      "<rootDir>/generators/**/?(*.)(spec|test).js?(x)"
     ],
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"

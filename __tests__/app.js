@@ -2,14 +2,21 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
+const answers = {
+  dirSource: "test",
+  moduleName: "test",
+  component: "test",
+  withRedux: true
+};
+
 describe("generator-react-bc:app", () => {
   beforeAll(() =>
-    helpers
-      .run(path.join(__dirname, "../generators/app"))
-      .withPrompts({ someAnswer: true })
+    helpers.run(path.join(__dirname, "../generators/app")).withPrompts(answers)
   );
 
   it("creates files", () => {
-    assert.file(["dummyfile.txt"]);
+    const { dirSource, moduleName } = answers;
+
+    assert.file([`${dirSource}/modules/${moduleName}/index.js`]);
   });
 });
