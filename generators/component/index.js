@@ -3,6 +3,18 @@ const normalize = require("../../utils");
 
 module.exports = class extends Generator {
   prompting() {
+    // eslint-disable-next-line no-underscore-dangle
+    if (this._hasRequiredInputs()) {
+      this.answers = normalize({
+        dirSource: this.options.dirSource,
+        moduleName: this.options.moduleName,
+        componentName: this.options.componentName,
+        withRedux: this.options.withRedux
+      });
+
+      return Promise.resolve();
+    }
+
     return this.prompt([
       {
         name: "dirSource",
@@ -35,22 +47,25 @@ module.exports = class extends Generator {
       }
     ]).then(answers => {
       this.answers = normalize(answers);
-
-      this.composeWith(require.resolve("../component-test"), {
-        dirSource: answers.dirSource,
-        moduleName: answers.moduleName,
-        componentName: answers.componentName
-      });
-
-      if (this.answers.withRedux) {
-        this.composeWith(require.resolve("../component-redux"), {
-          dirSource: answers.dirSource,
-          moduleName: answers.moduleName,
-          componentName: answers.componentName
-        });
-      }
     });
   }
+
+  default() {
+    this.composeWith(require.resolve("../component-test"), {
+      dirSource: this.answers.dirSource,
+      moduleName: this.answers.moduleName,
+      componentName: this.answers.componentName
+    });
+
+    if (this.answers.withRedux) {
+      this.composeWith(require.resolve("../component-redux"), {
+        dirSource: this.answers.dirSource,
+        moduleName: this.answers.moduleName,
+        componentName: this.answers.componentName
+      });
+    }
+  }
+
   writing() {
     const filenames = ["component", "enhancers", "index"];
 
@@ -65,5 +80,11 @@ module.exports = class extends Generator {
         this.answers
       );
     });
+  }
+
+  _hasRequiredInputs() {
+    const { componentName, dirSource, moduleName } = this.options;
+
+    return componentName && dirSource && moduleName;
   }
 };

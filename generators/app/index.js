@@ -1,39 +1,61 @@
 const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
+const normalize = require("../../utils");
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        `Welcome to the excellent ${chalk.red("generator-react-bc")} generator!`
-      )
-    );
-
-    const prompts = [
+    return this.prompt([
       {
+        name: "dirSource",
+        type: String,
+        required: true,
+        message: "Where is your source directory?",
+        default: "src",
+        store: true
+      },
+      {
+        name: "moduleName",
+        type: String,
+        required: true,
+        message: "What module?",
+        store: true
+      },
+      {
+        name: "componentName",
+        type: String,
+        required: true,
+        message: "What component?",
+        store: true
+      },
+      {
+        name: "withRedux",
         type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true
+        required: false,
+        message: "With Redux?",
+        default: false
       }
-    ];
+    ]).then(answers => {
+      this.answers = normalize(answers);
+    });
+  }
 
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
+  default() {
+    this.composeWith(require.resolve("../component"), {
+      dirSource: this.answers.dirSource,
+      moduleName: this.answers.moduleName,
+      componentName: this.answers.componentName,
+      withRedux: this.answers.withRedux
     });
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath("dummyfile.txt"),
-      this.destinationPath("dummyfile.txt")
+    this.fs.copyTpl(
+      this.templatePath("index.js"),
+      this.destinationPath(
+        `${this.answers.dirSource}/modules/${
+          this.answers.moduleNameDasherized
+        }/index.js`
+      ),
+      this.answers
     );
-  }
-
-  install() {
-    this.installDependencies();
   }
 };

@@ -1,4 +1,6 @@
-import <%= ComponentName %> from "./component";
+import { <%= ComponentName %> } from "./component";
 import enhance from "./enhancers";
 
-export default enhance(<%= ComponentName %>);
+const enhanced<%= ComponentName %> =  enhance(<%= ComponentName %>)
+
+export { enhanced<%= ComponentName %> as <%= ComponentName %> };
