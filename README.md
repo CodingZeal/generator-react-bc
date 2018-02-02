@@ -1,5 +1,7 @@
 <img src="http://yeoman.io/static/yeoman-character-sticker.51cef7e007.png" height="100" />
+
 # generator-react-bc
+
 A Yeoman generator for React modules, components, and redux boilerplate
 
 ## Installation
@@ -16,7 +18,3 @@ Then generate a **module, component, and optionally redux boilerplate** in your 
 ```bash
 yo react-bc
 ```
-
-## License
-
-unlicense © [Nate Clark]()
