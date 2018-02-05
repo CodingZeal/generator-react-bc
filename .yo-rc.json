@@ -9,8 +9,8 @@
   "generator-react-bc": {
     "promptValues": {
       "dirSource": "src",
-      "moduleName": "LongName",
-      "componentName": "LongName"
+      "moduleName": "fooBar",
+      "componentName": "FooBar"
     }
   }
 }

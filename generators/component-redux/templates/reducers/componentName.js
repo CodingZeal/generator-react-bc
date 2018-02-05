@@ -10,9 +10,9 @@ export const <%= componentName %>FetchRequest = (state = {}) => ({
   loading: true,
 });
 
-export const <%= componentName %>FetchSuccess = (state = {}, { payload = {} }) => ({
+export const <%= componentName %>FetchSuccess = (state = {}, { <%= componentName %> = {} }) => ({
   ...state,
   error: false,
   loading: false,
-  <%= componentName %>: payload
+  <%= componentName %>
 });
