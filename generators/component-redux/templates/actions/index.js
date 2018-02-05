@@ -9,7 +9,7 @@ export const <%= componentName %> = ({
   port = 3030,
   pathname = "/<%= componentNamePlural %>",
   ...data
-}) => dispatch => {
+} = {}) => dispatch => {
   const endpoint = url.format({
     protocol,
     hostname,
