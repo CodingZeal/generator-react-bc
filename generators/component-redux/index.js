@@ -101,11 +101,11 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath("reducers/component-name.js"),
+      this.templatePath("reducers/componentName.js"),
       this.destinationPath(
         `${this.answers.dirSource}/modules/${
           this.answers.moduleNameDasherized
-        }/reducers/${this.answers.componentNameDasherized}.js`
+        }/reducers/${this.answers.componentName}.js`
       ),
       this.answers
     );

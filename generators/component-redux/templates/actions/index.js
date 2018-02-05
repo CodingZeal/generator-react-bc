@@ -22,9 +22,9 @@ export const <%= componentName %> = ({
       endpoint,
       method,
       types: [
-        ActionTypes.<%= COMPONENT_NAME %>_FETCH_REQUEST,
-        ActionTypes.<%= COMPONENT_NAME %>_FETCH_SUCCESS,
-        ActionTypes.<%= COMPONENT_NAME %>_FETCH_FAILURE
+        ActionTypes.FETCH_REQUEST,
+        ActionTypes.FETCH_SUCCESS,
+        ActionTypes.FETCH_FAILURE
       ],
       headers: {
         "Content-Type": "application/json"

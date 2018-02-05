@@ -7,8 +7,8 @@ const initialState = {
 };
 
 const handlers = {
-  [ActionTypes.<%= COMPONENT_NAME %>_FAILURE]: <%= componentName %>FetchFailure,
-  [ActionTypes.<%= COMPONENT_NAME %>_SUCCESS]: <%= componentName %>FetchSuccess
+  [ActionTypes.FAILURE]: <%= componentName %>FetchFailure,
+  [ActionTypes.SUCCESS]: <%= componentName %>FetchSuccess
 };
 
 export default createReducer(initialState, handlers);
