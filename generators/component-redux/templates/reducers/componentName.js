@@ -7,10 +7,11 @@ export const <%= componentName %>FetchFailure = (state = {}) => ({
 
 export const <%= componentName %>FetchRequest = (state = {}) => ({
   ...state,
+  error: false,
   loading: true,
 });
 
-export const <%= componentName %>FetchSuccess = (state = {}, { <%= componentName %> = {} }) => ({
+export const <%= componentName %>FetchSuccess = (state = {}, <%= componentName %> = {}) => ({
   ...state,
   error: false,
   loading: false,

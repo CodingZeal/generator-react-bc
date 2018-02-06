@@ -1,4 +1,8 @@
-import { <%= componentName %>FetchSuccess, <%= componentName %>FetchFailure } from "../<%= componentName %>";
+import {
+  <%= componentName %>FetchSuccess,
+  <%= componentName %>FetchFailure,
+  <%= componentName %>FetchRequest
+} from "../<%= componentName %>";
 
 test("<%= componentName %>FetchFailure", () => {
   const state = { foo: "bar", <%= componentName %>: {} };

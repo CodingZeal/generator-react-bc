@@ -7,13 +7,15 @@ import {
 } from "./<%= componentName %>";
 
 const initialState = {
+  error: false,
+  loading: true,
   <%= componentName %>: null
 };
 
 const handlers = {
-  [ActionTypes.FAILURE]: <%= componentName %>FetchFailure,
-  [ActionTypes.REQUEST]: <%= componentName %>FetchRequest,
-  [ActionTypes.SUCCESS]: <%= componentName %>FetchSuccess
+  [ActionTypes.FETCH_FAILURE]: <%= componentName %>FetchFailure,
+  [ActionTypes.FETCH_REQUEST]: <%= componentName %>FetchRequest,
+  [ActionTypes.FETCH_SUCCESS]: <%= componentName %>FetchSuccess
 };
 
 export default createReducer(initialState, handlers);
