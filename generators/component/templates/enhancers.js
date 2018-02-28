@@ -19,4 +19,4 @@ const composed<%= ComponentName %> = compose(
   withTranslate({ namespace: "<%= moduleName %>", component: "<%= componentName %>" })
 );
 
-export { composed<%= ComponentName %> as <%= ComponentName %> }
+export { composed<%= ComponentName %> as <%= ComponentName %> };
