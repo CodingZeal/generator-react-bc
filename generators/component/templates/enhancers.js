@@ -7,7 +7,7 @@ import { <%= componentName %>Props } from '../../selectors';
 
 const mapStateToProps = <%= componentName %>Props;
 <% } %>
-const composed<%= ComponentName %> = compose(
+export const enhance = compose(
   setDisplayName("<%= ComponentName %>"),<% if (withRedux) { %>
   connect(mapStateToProps, { <%= componentName %>Fetch }),
   lifecycle({
@@ -18,5 +18,3 @@ const composed<%= ComponentName %> = compose(
   withLoading,<% } %>
   withTranslate({ namespace: "<%= moduleName %>", component: "<%= componentName %>" })
 );
-
-export { composed<%= ComponentName %> as <%= ComponentName %> }
