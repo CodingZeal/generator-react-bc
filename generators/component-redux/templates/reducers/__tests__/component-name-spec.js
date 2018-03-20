@@ -1,13 +1,9 @@
-import {
-  <%= componentName %>FetchSuccess,
-  <%= componentName %>FetchFailure,
-  <%= componentName %>FetchRequest
-} from "../<%= componentName %>";
+import { findSuccess, findFailure, findRequest } from "../<%= componentName %>";
 
-test("<%= componentName %>FetchFailure", () => {
+test("findFailure", () => {
   const state = { foo: "bar", <%= componentName %>: {} };
 
-  expect(<%= componentName %>FetchFailure(state)).toEqual({
+  expect(findFailure(state)).toEqual({
     ...state,
     error: true,
     loading: false,
@@ -15,23 +11,18 @@ test("<%= componentName %>FetchFailure", () => {
   });
 });
 
-test("<%= componentName %>FetchRequest", () => {
+test("findRequest", () => {
   const state = { foo: "bar" };
-  const action = {
-    payload: {
-      <%= componentName %>: {}
-    }
-  };
+  const action = { payload: {} };
 
-  expect(<%= componentName %>FetchRequest(state, action)).toEqual({
+  expect(findRequest(state, action)).toEqual({
     ...state,
     error: false,
-    loading: true,
-    <%= componentName %>: action.payload
+    loading: true
   });
 });
 
-test("<%= componentName %>FetchSuccess", () => {
+test("findSuccess", () => {
   const state = { foo: "bar" };
   const action = {
     payload: {
@@ -39,10 +30,10 @@ test("<%= componentName %>FetchSuccess", () => {
     }
   };
 
-  expect(<%= componentName %>FetchSuccess(state, action)).toEqual({
+  expect(findSuccess(state, action)).toEqual({
     ...state,
     error: false,
     loading: false,
-    <%= componentName %>: action.payload
+    <%= componentName %>: action.payload.<%= componentName %>
   });
 });

@@ -1,7 +1,11 @@
-import { id } from "../index";
+import { <%= componentName %>Props } from "../index";
 
-test("id returns correct value", () => {
-  const state = { <%= componentName %>: { id: true } };
+test("<%= componentName %>Props returns correct values", () => {
+  const state = {
+    <%= moduleName %>: { <%= componentName %>: { id: true } },
+    error: true,
+    loading: true
+  };
 
-  expect(id(state)).toEqual({ id: state.<%= componentName %>.id });
+  expect(<%= componentName %>Props(state)).toEqual(state.<%= moduleName %>);
 });

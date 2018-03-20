@@ -1,19 +1,19 @@
-export const <%= componentName %>FetchFailure = (state = {}) => ({
+export const findFailure = (state = {}) => ({
   ...state,
   error: true,
   loading: false,
   <%= componentName %>: null
 });
 
-export const <%= componentName %>FetchRequest = (state = {}) => ({
+export const findRequest = (state = {}) => ({
   ...state,
   error: false,
-  loading: true,
+  loading: true
 });
 
-export const <%= componentName %>FetchSuccess = (state = {}, <%= componentName %> = {}) => ({
+export const findSuccess = (state = {}, { payload }) => ({
   ...state,
   error: false,
   loading: false,
-  <%= componentName %>
+  <%= componentName %>: payload.<%= componentName %>
 });

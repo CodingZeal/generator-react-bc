@@ -1,7 +1,7 @@
 import { createActionTypes } from "zeal-redux-utils";
 
 export const ActionTypes = createActionTypes("<%= componentName %>", [
-  "FETCH_REQUEST",
-  "FETCH_SUCCESS",
-  "FETCH_FAILURE"
+  "<%= COMPONENT_NAME %>_FIND_REQUEST",
+  "<%= COMPONENT_NAME %>_FIND_SUCCESS",
+  "<%= COMPONENT_NAME %>_FIND_FAILURE"
 ]);

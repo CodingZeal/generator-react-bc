@@ -71,11 +71,21 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath("actions/index.js"),
+      this.templatePath("actions/__tests__/componentName-spec.js"),
       this.destinationPath(
         `${this.answers.dirSource}/modules/${
           this.answers.moduleNameDasherized
-        }/actions/index.js`
+        }/actions/__tests__/${this.answers.componentNameDasherized}-spec.js`
+      ),
+      this.answers
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("actions/componentName.js"),
+      this.destinationPath(
+        `${this.answers.dirSource}/modules/${
+          this.answers.moduleNameDasherized
+        }/actions/${this.answers.componentName}.js`
       ),
       this.answers
     );

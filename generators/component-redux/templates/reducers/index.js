@@ -1,10 +1,6 @@
 import { createReducer } from "zeal-redux-utils";
 import { ActionTypes } from "../constants/actionTypes";
-import {
-  <%= componentName %>FetchFailure,
-  <%= componentName %>FetchRquest,
-  <%= componentName %>FetchSuccess
-} from "./<%= componentName %>";
+import * as <%= componentName %> from "./<%= componentName %>";
 
 const initialState = {
   error: false,
@@ -13,9 +9,9 @@ const initialState = {
 };
 
 const handlers = {
-  [ActionTypes.FETCH_FAILURE]: <%= componentName %>FetchFailure,
-  [ActionTypes.FETCH_REQUEST]: <%= componentName %>FetchRequest,
-  [ActionTypes.FETCH_SUCCESS]: <%= componentName %>FetchSuccess
+  [ActionTypes.<%= COMPONENT_NAME %>_FIND_FAILURE]: <%= componentName %>.findFailure,
+  [ActionTypes.<%= COMPONENT_NAME %>_FIND_REQUEST]: <%= componentName %>.findRequest,
+  [ActionTypes.<%= COMPONENT_NAME %>_FIND_SUCCESS]: <%= componentName %>.findSuccess
 };
 
 export default createReducer(initialState, handlers);
