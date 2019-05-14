@@ -1,3 +1,11 @@
+# `DEPRECATED`
+
+## End of Life
+
+This generator was an experiment to quickly create boilerplate components per the BC style in the early stages of the React project. It was later scrapped and is no longer in use.
+
+---
+
 <img src="http://yeoman.io/static/yeoman-character-sticker.51cef7e007.png" height="100" />
 
 # generator-react-bc
